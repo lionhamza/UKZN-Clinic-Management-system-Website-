@@ -1,7 +1,3 @@
-Here's a professional README file tailored to the title **"UKZN Clinic Management System Website"**:
-
----
-
 # UKZN Clinic Management System Website  
 
 The **UKZN Clinic Management System Website** is a comprehensive web application designed to streamline clinic operations at the University of KwaZulu-Natal. It provides staff with tools to efficiently manage medicine inventory, schedule appointments, and maintain patient records while ensuring secure data management.  
@@ -95,6 +91,3 @@ For any inquiries, support, or feedback, please contact:
 Email: lionhamza39@gmail.com
 Location: Newcastle, Madadeni, South Africa  
 
----
-
-You can copy and paste this directly into your README file or Git repository.
