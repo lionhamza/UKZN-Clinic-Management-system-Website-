@@ -1,0 +1,219 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UKZNHCMSEWEBV4.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Fix the navbar at the top */
+            top: 0;
+            left: 0;
+            right: 0; /* Make it stretch across the full width */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-control {
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .navbar iconimg {
+            margin-right: 20px;
+        }
+
+        .btn {
+            border-radius: 20px;
+            padding: 10px 25px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            width: 265px;
+            background-color: white;
+            position: fixed;
+            top: 80px; /* Below the navbar */
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Scrollable if content exceeds */
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebarbuttons {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sidebarbuttons:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .sidebarbuttons img {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-left: 270px; /* Space for sidebar */
+            padding: 15px;
+            background-color: #fff;
+            min-height: calc(100vh - 70px); /* Full height minus navbar */
+            margin-top: 70px; /* Space for fixed navbar */
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        table {
+            width: 80%;
+            margin: 15px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+            <div class="navbar">
+            <h1><b>UKZN Howard Campus Clinic</b></h1>
+            <div class="search-container">
+                <input type="text" class="form-control" placeholder="Search..." />
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="iconimg">
+	<img src="../../Resources/UKZN-Logo-Colour-removebg-preview.png" width="210" height="210" alt="UKZN Logo"/>
+            </div>
+            <hr />
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/12692394.png" width="45" height="45"/>
+                <h4><b>Manager</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/1253685.png" width="45" height="45"/>
+                <h4><b>Admin</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/1021566.png" width="45" height="45"/>
+                <h4><b>Doctor</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/1165602.png" width="45" height="45"/>
+                <h4><b>Nurse</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/3296464.png" width="45" height="45"/>
+                <h4><b>Emails</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/2630878.png" width="45" height="45"/>
+                <h4><b>System</b></h4>
+            </div>
+            <div class="sidebarbuttons" onclick="redirectToAppointments()">
+                <img src="../../Resources/New/7596566.png" width="45" height="45"/>
+                <h4><b>LogOut</b></h4>
+            </div>
+        </div>
+
+        <script>
+            function redirectToAppointments() {
+                // Redirect to the appointments page
+	window.location.href = 'Nurse.aspx'; // Change this to your actual appointments page URL
+            }
+        </script>
+
+        <div class="content">
+            <hr />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <table class="mainmenutable">
+                   <tr>
+                         <td>
+                            <h3>Contacts</h3>
+                            <h4>contacts</h4>
+                             <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                         </td>
+                         <td>
+                            <h3>Contacts</h3>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                            <h4>contacts</h4>
+                         </td>
+                    </tr>
+                </table>
+                <p>&copy; <%: DateTime.Now.Year %> - UKZN HOWARD CLINIC</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
